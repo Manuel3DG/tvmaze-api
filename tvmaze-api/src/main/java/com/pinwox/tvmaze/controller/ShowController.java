@@ -1,10 +1,15 @@
 package com.pinwox.tvmaze.controller;
 
+import com.pinwox.tvmaze.dto.CommentRequestDto;
 import com.pinwox.tvmaze.dto.ShowResponseDto;
 import com.pinwox.tvmaze.service.TvMazeService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,5 +37,11 @@ public class ShowController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(show);
+    }
+
+    @PostMapping("/comments")
+    public ResponseEntity<Void> addComment(@Valid @RequestBody CommentRequestDto commentRequestDto) {
+        tvMazeService.saveComment(commentRequestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
