@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Variables de entorno y credenciales ###
+.env
+.env.*
+!.env.example
+
+### Archivos de registro ###
+*.log

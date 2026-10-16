@@ -1,4 +1,4 @@
-package com.pinwox.tvmaze.dto;
+﻿package com.pinwox.tvmaze.dto;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ public class ShowResponseDto {
     private String channel;
     private String summary;
     private List<String> genres;
+    private List<CommentDto> comments;
 
     public ShowResponseDto() {
     }
@@ -58,5 +59,13 @@ public class ShowResponseDto {
 
     public void setGenres(List<String> genres) {
         this.genres = genres;
+    }
+
+    public List<CommentDto> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentDto> comments) {
+        this.comments = comments;
     }
 }
