@@ -4,10 +4,12 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CommentRequestDto {
 
     @NotNull
+    @JsonProperty("show_id")
     private Long showId;
 
     @NotBlank
@@ -25,6 +27,7 @@ public class CommentRequestDto {
         return showId;
     }
 
+    @JsonProperty("show_id")
     public void setShowId(Long showId) {
         this.showId = showId;
     }
